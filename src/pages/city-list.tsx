@@ -1,4 +1,5 @@
 import Loader from "../components/loader";
+import { Message } from "../components/message";
 
 function formatData(date: string) {
   return new Intl.DateTimeFormat("en", {
@@ -29,6 +30,12 @@ export default function CitiesList({ cities, isLoading }: Props) {
     return (
       <div className="my-auto">
         <Loader />
+      </div>
+    );
+  if (cities.length === 0)
+    return (
+      <div className="mt-9">
+        <Message message="Add your first city by clicking on a city on the map." />
       </div>
     );
   return (
